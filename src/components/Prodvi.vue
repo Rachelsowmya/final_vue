@@ -34,7 +34,7 @@
 
 <script>
 export default{
-    name: 'ProdVuew',
+    name: 'Prodvi',
     props:{
         pname: Object
     }
