@@ -2,21 +2,21 @@
    
 
     <div v-for="pname of products" :key="pname.id">
-            <prodview :pname=pname />
+            <ProdVuew :pname="pname" />
     </div>
 
 </template>
 
 <script>
-import prodview from './prodview.vue'
+import ProdVuew from './ProdVuew.vue'
 
 export default{
-    name: 'Listv',
+    name: 'ListVuew',
     props:{
         products: Array
     },
     components:{
-        prodview
+        ProdVuew
     }
 }
 
