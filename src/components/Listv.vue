@@ -11,7 +11,7 @@
 import Prodvi from './Prodvi.vue'
 
 export default{
-    name: 'ListV',
+    name: 'Listv',
     props:{
         products: Array
     },
