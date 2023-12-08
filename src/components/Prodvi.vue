@@ -5,7 +5,7 @@
     <div class="product-details">
       <h3>{{ pname.name }}</h3>
       <p class="product-description">{{ pname.description }}</p>
-      <p class="product-price">price:$ {{ pname.price.toFixed(2) }}</p>
+      <p class="product-price">price:$ {{ pname.price}}</p>
       <p class="product-availability" :class="{ 'available': pname.availability, 'not-available': !pname.availability }">
         {{ pname.availability ? 'Available' : 'Not Available' }}
       </p>
@@ -20,23 +20,23 @@
       <div class="product-revi">
         <h4>Review</h4>
       </div>
-        <div class="product-reviews" v-if="pname.reviews.length === 0">No reviews yet.</div>
-        <div v-else>
-          <div v-for="review in pname.reviews" :key="review.user" class="review">
-            <p><strong>{{ review.user }}</strong></p>
-            <p>{{ '★'.repeat(review.rating) }}</p>
-            <p>{{ review.comment }}</p>
-          </div>
-        </div>
+        <div class="product-reviews" v-if="pname.reviews && pname.reviews.length === 0">No reviews yet.</div>
+<div v-else-if="pname.reviews">
+  <div v-for="review in pname.reviews" :key="review.user" class="review">
+    <p><strong>{{ review.user }}</strong></p>
+    <p>{{ '★'.repeat(review.rating) }}</p>
+    <p>{{ review.comment }}</p>
+  </div>
+</div>
     </div>
   </div>
 </template>
 
 <script>
 export default{
-    name: 'Prodvi',
+    name: 'ProdVuew',
     props:{
-        pname: Array
+        pname: Object
     }
 } 
 </script>
@@ -60,7 +60,7 @@ height: 350px;
 .product-details {
   padding: 15px;
   flex: 1;
-  font-display: 20px;
+  font-size: 20px;
 }
 .box {
   color: whitesmoke;
