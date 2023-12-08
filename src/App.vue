@@ -1,19 +1,19 @@
 <template>
   <div id="app">
     <MyHeader />
-    <Listv :products="products" />
+    <ListVuew :products="products" />
   </div>
 </template>
 
 <script>
 import MyHeader from './components/MyHeader.vue'
-import Listv from './components/Listv.vue' 
+import ListVuew from './components/ListVuew.vue' 
 
 export default {
   name: 'App',
   components: {
     MyHeader,
-    Listv
+    ListVuew
   },
   data() {
     return {
@@ -21,17 +21,24 @@ export default {
     }
   },
   methods: {
-    async fetchProducts() {
-      const res = await fetch('https://plant-nursery-85ik.onrender.com');
-      const data = await res.json()
-      console.log(data)
-      return data
+    async fetchproducts() {
+      try {
+        const res = await fetch('https://rachel-node.onrender.com/api');
+        const data = await res.json();
+        console.log(data);
+        return data.products; 
+      } catch (error) {
+        console.error('Error fetching products:', error);
+        return [];
+      }
+    },
+    async loadProducts() {
+      this.products = await this.fetchproducts();
     }
   },
   async created() {
-  this.products = await this.fetchProducts(); 
-}
-
+    await this.loadProducts();
+  }
 };
 </script>
 
