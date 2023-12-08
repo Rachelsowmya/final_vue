@@ -1,19 +1,19 @@
 <template>
   <div id="app">
     <MyHeader />
-    <ListVuew :products="products" />
+    <Listv :products="products" />
   </div>
 </template>
 
 <script>
 import MyHeader from './components/MyHeader.vue'
-import ListVuew from './components/ListVuew.vue' 
+import Listv from './components/Listv.vue' 
 
 export default {
   name: 'App',
   components: {
     MyHeader,
-    ListVuew
+    Listv
   },
   data() {
     return {
